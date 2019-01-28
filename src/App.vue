@@ -118,7 +118,18 @@
       </table>
     </div>
 
-
+    <div style="margin-top: 50px">
+      <div class="t">非倍数<span v-for="item in items[number].red" v-if="not.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+      <div class="t">三倍数<span v-for="item in items[number].red" v-if="three.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+      <div class="t">二倍数<span v-for="item in items[number].red" v-if="two.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+      <div class="t">五倍数<span v-for="item in items[number].red" v-if="five.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+    </div>
+    <div style="margin-top: 20px">
+      <div class="t">0字头<span v-for="item in items[number].red" v-if="head0.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+      <div class="t">1字头<span v-for="item in items[number].red" v-if="head1.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+      <div class="t">2字头<span v-for="item in items[number].red" v-if="head2.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+      <div class="t">3字头<span v-for="item in items[number].red" v-if="head3.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
+    </div>
     <div style="margin-top: 50px">
       <button @click="prev">上一期</button>
       <button @click="next">下一期</button>
@@ -156,7 +167,16 @@ export default {
       nine:[1,4,7,10,'',13,16,19,22,'',25,28,31,'',2,5,8,11,'',14,17,20,'',23,26,29,32,'',3,6,9,'',12,15,18,21,'',24,27,30,33],
       number:2019012,
       max:2019012,
-      min:2019005
+      min:2019005,
+      not:[1,7,11,13,17,19,23,29,31],
+      three:[3,6,9,12,15,18,21,24,27,30,33],
+      two:[2,4,6,8,14,16,22,26,28,32],
+      five:[5,10,20,25],
+      head0:[1,2,3,4,5,6,7,8,9],
+      head1:[10,11,12,13,14,15,16,17,18,19],
+      head2:[20,21,22,23,24,25,26,27,28,29],
+      head3:[30,31,32,33]
+
     }
   },
   methods:{
