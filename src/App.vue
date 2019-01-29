@@ -130,6 +130,9 @@
       <div class="t">2字头<span v-for="item in items[number].red" v-if="head2.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
       <div class="t">3字头<span v-for="item in items[number].red" v-if="head3.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
     </div>
+    <div>
+      <div class="t">五期均值 <span :class="zhishu.includes(data6) ? 'red' : '' " v-for="data6 in datas6">{{data6}}</span></div>
+    </div>
     <div style="margin-top: 50px">
       <button @click="prev">上一期</button>
       <button @click="next">下一期</button>
@@ -370,6 +373,17 @@ export default {
       }
       return data
     },
+    datas6(){
+      let data =[]
+
+      for(let i=0;i<6;i++){
+        let toatal =this.items[this.number].red[i]+this.items[this.number-1].red[i]+this.items[this.number-2].red[i]+this.items[this.number-3].red[i]+this.items[this.number-4].red[i]
+        data.push(Math.round(toatal/5))
+      }
+      console.log(data)
+      return data
+
+    }
 
 
   }
