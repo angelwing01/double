@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <div class="t f1"><span style="width: 80px">{{number}}</span>:<span :class="zhishu.includes(item) ? 'red' : '' " v-for="item in items[number].red">{{item}}</span><span>/</span><span :class="zhishu.includes(item) ? 'red' : '' ">{{items[number].blue}}</span></div>
-    <div class="t"><span></span>冷号: <span :class="zhishu.includes(data5) ? 'red' : '' " v-for="data5 in datas5">{{data5}}</span><span>----{{datas5.length}}个</span></div>
-    <div class="t"><span></span>推号: <span :class="zhishu.includes(data4) ? 'red' : '' " v-for="data4 in datas4">{{data4}}</span> </div>
-    <div class="t"><span></span>备号: <span :class="zhishu.includes(data3) ? 'red' : '' " v-for="data3 in datas3">{{data3}}</span> </div>
-    <div class="t"><span></span>中号: <span :class="zhishu.includes(data2) ? 'red' : '' " v-for="data2 in datas2">{{data2}}</span> </div>
-    <div class="t"><span></span>隔号: <span :class="zhishu.includes(data1) ? 'red' : '' " v-for="data1 in datas1">{{data1}}</span> </div>
-    <div class="t"><span></span>复号: <span :class="zhishu.includes(data0) ? 'red' : '' " v-for="data0 in datas0">{{data0}}</span> </div>
+    <div class="t"><span></span>冷号: <span :class="hi(data5)" v-for="data5 in datas5">{{data5}}</span><span>----{{datas5.length}}个</span></div>
+    <div class="t"><span></span>推号: <span :class="hi(data4)" v-for="data4 in datas4">{{data4}}</span> </div>
+    <div class="t"><span></span>备号: <span :class="hi(data3)" v-for="data3 in datas3">{{data3}}</span> </div>
+    <div class="t"><span></span>中号: <span :class="hi(data2)" v-for="data2 in datas2">{{data2}}</span> </div>
+    <div class="t"><span></span>隔号: <span :class="hi(data1)" v-for="data1 in datas1">{{data1}}</span> </div>
+    <div class="t"><span></span>复号: <span :class="hi(data0)" v-for="data0 in datas0">{{data0}}</span> </div>
     <div style="margin-top: 50px" class="six">
       <span :class="top(data)"  v-for="data in all" :style="data ? '': 'display:inline-block;width:4px;height:30px;background:#000'">{{data}}</span>
     </div>
@@ -152,6 +152,12 @@ export default {
 
     return{
       items:{
+        2019023:{red:[1,10,14,15,18,31],blue:13},
+        2019022:{red:[3,7,11,21,30,33],blue:7},
+        2019021:{red:[2,5,7,8,20,27],blue:4},
+        2019020:{red:[2,12,13,23,27,28],blue:12},
+        2019019:{red:[3,11,17,18,24,25],blue:6},
+        2019018:{red:[4,11,18,19,26,32],blue:4},
         2019017:{red:[4,5,24,28,30,33],blue:9},
         2019016:{red:[5,7,9,11,19,25],blue:5},
         2019015:{red:[11,15,16,20,24,31],blue:4},
@@ -173,8 +179,8 @@ export default {
       zhishu:[1,2,3,5,7,11,13,17,19,23,29,31],
       all:[1,2,3,4,5,6,'',7,8,9,10,11,'',12,13,14,15,16,17,'',18,19,20,21,22,'',23,24,25,26,27,28,'',29,30,31,32,33],
       nine:[1,4,7,10,'',13,16,19,22,'',25,28,31,'',2,5,8,11,'',14,17,20,'',23,26,29,32,'',3,6,9,'',12,15,18,21,'',24,27,30,33],
-      number:2019016,
-      max:2019017,
+      number:2019023,
+      max:2019023,
       min:2019005,
       not:[1,7,11,13,17,19,23,29,31],
       three:[3,6,9,12,15,18,21,24,27,30,33],
@@ -219,6 +225,21 @@ export default {
       }
 
       return back
+    },
+    hi(key){
+      if(this.items[this.number+1]){
+         if(this.items[this.number+1].red.includes(key) && this.zhishu.includes(key)){
+              return 'red next'
+         }else if(this.items[this.number+1].red.includes(key)){
+              return 'next'
+         }else if(this.zhishu.includes(key)){
+              return 'red'
+         }else {
+              return ''
+         }
+      }else {
+        return this.zhishu.includes(key) ? 'red' : ''
+      }
     },
     top(data){
       if(!this.items[this.number+1]){
@@ -461,4 +482,8 @@ export default {
   .six>span{
     margin: 0 5px;
   }
+  .next{
+    background: #f5e;
+  }
+
 </style>
