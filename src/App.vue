@@ -1,147 +1,6 @@
 <template>
   <div id="app">
-    <div class="t f1"><span style="width: 80px">{{number}}</span>:<span :class="zhishu.includes(item) ? 'red' : '' " v-for="item in items[number].red">{{item}}</span><span>/</span><span :class="zhishu.includes(item) ? 'red' : '' ">{{items[number].blue}}</span></div>
-    <div class="t"><span></span>冷号: <span :class="hi(data5)" v-for="data5 in datas5">{{data5}}</span><span>----{{datas5.length}}个</span></div>
-    <div class="t"><span></span>推号: <span :class="hi(data4)" v-for="data4 in datas4">{{data4}}</span> </div>
-    <div class="t"><span></span>备号: <span :class="hi(data3)" v-for="data3 in datas3">{{data3}}</span> </div>
-    <div class="t"><span></span>中号: <span :class="hi(data2)" v-for="data2 in datas2">{{data2}}</span> </div>
-    <div class="t"><span></span>隔号: <span :class="hi(data1)" v-for="data1 in datas1">{{data1}}</span> </div>
-    <div class="t"><span></span>复号: <span :class="hi(data0)" v-for="data0 in datas0">{{data0}}</span> </div>
-    <div style="margin-top: 50px" class="six">
-      <span :class="top(data)"  v-for="data in all" :style="data ? '': 'display:inline-block;width:4px;height:30px;background:#000'">{{data}}</span>
-    </div>
-    <div style="margin-top: 50px" class="six">
-      <span :class="top(data)"  v-for="data in nine" :style="data ? '': 'display:inline-block;width:4px;height:30px;background:#000'">{{data}}</span>
-    </div>
-    <div style="height: 180px;margin-top: 50px">
-      <table style="float: left">
-        <tr>
-          <td :class="back(1)">1</td>
-          <td :class="back(2)">2</td>
-          <td :class="back(3)">3</td>
-          <td :class="back(4)">4</td>
-          <td :class="back(5)">5</td>
-          <td :class="back(6)">6</td>
-        </tr>
-        <tr>
-          <td :class="back(7)">7</td>
-          <td :class="back(8)">8</td>
-          <td :class="back(9)">9</td>
-          <td :class="back(10)">10</td>
-          <td :class="back(11)">11</td>
-          <td :class="back(12)">12</td>
-        </tr>
-        <tr>
-          <td :class="back(13)">13</td>
-          <td :class="back(14)">14</td>
-          <td :class="back(15)">15</td>
-          <td :class="back(16)">16</td>
-          <td :class="back(17)">17</td>
-          <td :class="back(18)">18</td>
-        </tr>
-        <tr>
-          <td :class="back(19)">19</td>
-          <td :class="back(20)">20</td>
-          <td :class="back(21)">21</td>
-          <td :class="back(22)">22</td>
-          <td :class="back(23)">23</td>
-          <td :class="back(24)">24</td>
-        </tr>
-        <tr>
-          <td :class="back(25)">25</td>
-          <td :class="back(26)">26</td>
-          <td :class="back(27)">27</td>
-          <td :class="back(28)">28</td>
-          <td :class="back(29)">29</td>
-          <td :class="back(30)">30</td>
-        </tr>
-        <tr>
-          <td :class="back(31)">31</td>
-          <td :class="back(32)">32</td>
-          <td :class="back(33)">33</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-      </table>
-      <table style="float:left; margin-left: 200px">
-        <tr>
-          <td :class="back(31)">31</td>
-          <td :class="back(32)">32</td>
-          <td :class="back(33)">33</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td :class="back(30)">30</td>
-          <td :class="back(13)">13</td>
-          <td :class="back(14)">14</td>
-          <td :class="back(15)">15</td>
-          <td :class="back(16)">16</td>
-          <td :class="back(17)">17</td>
-        </tr>
-        <tr>
-          <td :class="back(29)">29</td>
-          <td :class="back(12)">12</td>
-          <td :class="back(3)">3</td>
-          <td :class="back(4)">4</td>
-          <td :class="back(5)">5</td>
-          <td :class="back(18)">18</td>
-        </tr>
-        <tr>
-          <td :class="back(28)">28</td>
-          <td :class="back(11)">11</td>
-          <td :class="back(2)">2</td>
-          <td :class="back(1)">1</td>
-          <td :class="back(6)">6</td>
-          <td :class="back(19)">19</td>
-        </tr>
-        <tr>
-          <td :class="back(27)">27</td>
-          <td :class="back(10)">10</td>
-          <td :class="back(9)">9</td>
-          <td :class="back(8)">8</td>
-          <td :class="back(7)">7</td>
-          <td :class="back(20)">20</td>
-        </tr>
-        <tr>
-          <td :class="back(26)">26</td>
-          <td :class="back(25)">25</td>
-          <td :class="back(24)">24</td>
-          <td :class="back(23)">23</td>
-          <td :class="back(22)">22</td>
-          <td :class="back(21)">21</td>
-        </tr>
-
-      </table>
-    </div>
-
-    <div style="margin-top: 50px">
-      <div class="t">非倍数<span v-for="item in items[number].red" v-if="not.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-      <div class="t">三倍数<span v-for="item in items[number].red" v-if="three.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-      <div class="t">二倍数<span v-for="item in items[number].red" v-if="two.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-      <div class="t">五倍数<span v-for="item in items[number].red" v-if="five.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-    </div>
-    <div style="margin-top: 20px">
-      <div class="t">0字头<span v-for="item in items[number].red" v-if="head0.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-      <div class="t">1字头<span v-for="item in items[number].red" v-if="head1.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-      <div class="t">2字头<span v-for="item in items[number].red" v-if="head2.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-      <div class="t">3字头<span v-for="item in items[number].red" v-if="head3.includes(item)" :class="zhishu.includes(item) ? 'red' : ''">{{item}}</span></div>
-    </div>
-    <div>
-      <div class="t">五期均值 <span :class="zhishu.includes(data6) ? 'red' : '' " v-for="data6 in datas6">{{data6}}</span></div>
-    </div>
-    <div style="margin-top: 50px">
-      <button @click="prev">上一期</button>
-      <button @click="next">下一期</button>
-    </div>
-
-
-
-
-    <!--<router-view/>-->
+    <router-view/>
   </div>
 </template>
 
@@ -152,6 +11,7 @@ export default {
 
     return{
       items:{
+        2019027:{red:[2,6,8,10,11,17],blue:13},
         2019026:{red:[3,13,15,19,20,27],blue:14},
         2019025:{red:[15,16,21,27,30,33],blue:4},
         2019024:{red:[1,8,23,25,28,29],blue:10},
@@ -182,8 +42,8 @@ export default {
       zhishu:[1,2,3,5,7,11,13,17,19,23,29,31],
       all:[1,2,3,4,5,6,'',7,8,9,10,11,'',12,13,14,15,16,17,'',18,19,20,21,22,'',23,24,25,26,27,28,'',29,30,31,32,33],
       nine:[1,4,7,10,'',13,16,19,22,'',25,28,31,'',2,5,8,11,'',14,17,20,'',23,26,29,32,'',3,6,9,'',12,15,18,21,'',24,27,30,33],
-      number:2019025,
-      max:2019026,
+      number:2019026,
+      max:2019027,
       min:2019005,
       not:[1,7,11,13,17,19,23,29,31],
       three:[3,6,9,12,15,18,21,24,27,30,33],
