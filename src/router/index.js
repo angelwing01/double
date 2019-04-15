@@ -12,7 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'double',
-      component: one
+      component: double
     },
     {
       path: '/test',
