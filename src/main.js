@@ -7,7 +7,11 @@ import VeeValidate,{ Validator } from 'vee-validate';
 // import VueI18n from 'vue-i18n';
 import validationMessages from 'vee-validate/dist/locale/zh_CN';
 Vue.use(VeeValidate);
+import { Swipe, SwipeItem } from 'vue-swipe';
 
+//注册轮播图
+Vue.component('swipe', Swipe);
+Vue.component('swipe-item', SwipeItem);
 // Localize takes the locale object as the second argument (optional) and merges it.
 Validator.localize('ar', validationMessages );
 // Vue.use(VueI18n);
